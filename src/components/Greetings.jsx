@@ -64,3 +64,8 @@ export function extra() {
 
     return <div>{ale}</div>
 }
+
+
+function GoalItem(props) {
+  return <li>{props.children} (ID: {props.id})</li>
+}

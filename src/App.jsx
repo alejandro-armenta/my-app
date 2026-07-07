@@ -1,16 +1,16 @@
 import React from 'react'
 
-function GoalItem(props) {
-  return <li>{props.children} (ID: {props.id})</li>
+function Product({ title, price, id }) {
+  return <p> {title} {price} {id} </p>
 }
 
 function App() {
-  return (
-    <ul>
-      <GoalItem id='g1'>Learn React</GoalItem>
-      <GoalItem id='g2'>Alejandro</GoalItem>
-    </ul>
-  )
+
+  const productData = { title: 'a book', price: 29.99, id: 'p1' }
+
+  //spread operator
+  return <Product {...productData} />
+
 }
 
 export default App
