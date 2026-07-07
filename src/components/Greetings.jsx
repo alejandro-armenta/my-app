@@ -2,6 +2,18 @@ import image from '../assets/hero.png'
 
 import React from 'react'
 
+
+
+function Animated(props) {
+  return <a href={props.target}>{props.text}</a>
+}
+
+function NavItem(props) {
+  return <div>
+    <Animated target={props.target} text="some text" />
+  </div>
+}
+
 //todos eston son de props por eso se pueden destructurar
 function Link({ children, ...config }) {
   return (
