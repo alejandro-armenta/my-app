@@ -1,16 +1,22 @@
 import React from 'react'
 
-function Product({ title, price, id }) {
-  return <p> {title} {price} {id} </p>
+function Animated(props) {
+  return <a href={props.target}>{props.text}</a>
+}
+
+function NavItem(props) {
+  return <div>
+    <Animated target={props.target} text="some text" />
+  </div>
 }
 
 function App() {
-
-  const productData = { title: 'a book', price: 29.99, id: 'p1' }
-
-  //spread operator
-  return <Product {...productData} />
-
+  return (
+    <>
+      <Link href='https://vite.dev/' download={true}>hello</Link>
+      <Link href="https://google.com">Can you google that for me?</Link>
+    </>
+  )
 }
 
 export default App

@@ -2,6 +2,25 @@ import image from '../assets/hero.png'
 
 import React from 'react'
 
+//todos eston son de props por eso se pueden destructurar
+function Link({ children, ...config }) {
+  return (
+    <p>
+      <a
+        {...config}
+        target='_blank'
+        rel='noopener noreferrer'>
+        {children}
+      </a>
+    </p>
+  )
+
+}
+
+function Product({ title, price, id }) {
+  return <p> {title} {price} {id} </p>
+}
+
 export function Greeting() {
     //react creates this virtual dom
     return React.createElement('p', {}, 'alejandro')
