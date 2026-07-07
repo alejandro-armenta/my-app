@@ -2,43 +2,25 @@ import React from 'react'
 
 import { useState } from 'react'
 
-//esta se llama cuando se modifica
-function EmailInput() {
+function Counter() {
 
-  const [errorMessage, setErrorMessage] = useState('')
+  const [counter, setCounter] = useState(0)
 
-  //esta no se llama cuando se modifica
-  function evaluateEmail(event) {
-
-    const enteredEmail = event.target.value
-
-    if (enteredEmail.trim() === '' || !enteredEmail.includes('@')) {
-      setErrorMessage('The entered email address is invalid.')
-    }
-    else {
-      setErrorMessage('')
-    }
-
+  function handleIncrement() {
+    setCounter(counter + 1)
   }
 
   return (
-    <div>
-
-      <input
-        placeholder='your email'
-        type='email'
-        onBlur={evaluateEmail}
-      />
-
-      <p>{errorMessage}</p>
-
-    </div>
+    <>
+      <p>Counter value: {counter}</p>
+      <button onClick={handleIncrement}>Increment</button>
+    </>
   )
 }
 
 function App() {
   return (
-    <EmailInput />
+    <Counter />
   )
 }
 
