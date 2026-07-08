@@ -1,29 +1,34 @@
 import { useState } from "react"
 
-function TermsOfUse() {
+function ProductsList({ products }) {
+    const elements = []
 
-    const [showTerms, setShowTerms] = useState(false)
-
-    function handleShowTermsSummary() {
-        setShowTerms(true)
+    for (const product of products) {
+        elements.push(
+            <li key={product.id}>
+                <h2>{product.title}</h2>
+                <p>${product.price}</p>
+            </li>
+        )
     }
-
-    let ptext
-
-    if (showTerms) {
-        ptext = <p>By continuing, you accept that we will not indemnify you for any damage or harm caused by our products.</p>
-    }
+    
+    console.log(elements)
 
     return (
-        <section>
-            <button onClick={handleShowTermsSummary}>Show terms of use summary</button>
-            {ptext}
-        </section>
+        <ul>
+            {elements}
+        </ul>
     )
 }
 
 export default function App() {
+    const products = [
+        { id: 'p1', title: 'A Book', price: 59.99 },
+        { id: 'p2', title: 'A Carpet', price: 129.49 },
+        { id: 'p3', title: 'Another Book', price: 39.99 },
+    ];
+
     return (
-        <TermsOfUse />
+        <ProductsList products={products} />
     )
 }

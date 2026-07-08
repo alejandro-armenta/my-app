@@ -2,6 +2,26 @@ import { useState } from "react";
 import Calculation from "./components/Calculation";
 import Result from "./components/Result";
 
+
+function TermsOfUse() {
+
+    const [showTerms, setShowTerms] = useState(false)
+
+    function handleShowTermsSummary() {
+        setShowTerms(true)
+    }
+
+    return (
+        <section>
+            <button onClick={handleShowTermsSummary}>Show terms of use summary</button>
+            {/*esto lo combierte en booleano*/}
+            {!!showTerms && <p>By continuing, you accept that we will not indemnify you for any damage or harm caused by our products.</p>}
+        </section>
+    )
+}
+
+
+
 export default function App() {
 
 
