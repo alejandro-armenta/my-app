@@ -2,6 +2,132 @@ import image from '../assets/hero.png'
 
 import React from 'react'
 
+function CharCounter() {
+
+  const [userInput, setUserInput] = useState('')
+
+  function handleChange(event) {
+    setUserInput(event.target.value)
+  }
+
+  const numChars = userInput.length
+
+  return (
+    <>
+      <input type='text' onChange={handleChange} />
+      <p>characters entered: {numChars}</p>
+    </>
+  )
+}
+
+function NewsletterField() {
+
+  const [email, setEmail] = useState('')
+
+  function handleUpdateEmail(event) {
+    setEmail(event.target.value)
+  }
+
+  function handleClearInput() {
+    setEmail('')
+  }
+
+  return (
+    <>
+      <input
+        type='email'
+        placeholder='your email address'
+        value={email}
+        onChange={handleUpdateEmail}
+      />
+      
+      <button onClick={handleClearInput}>Reset</button>
+    </>
+  )
+}
+
+function LoginForm() {
+
+  const [userData, setUserData] = useState(
+    {
+      email: '',
+      password: ''
+    }
+  )
+
+  function handleUpdateEmail(event) {
+    setUserData(
+      prevUserData => ({
+        email: event.target.value,
+        password: prevUserData.password,
+      })
+    )
+  }
+
+  function handleUpdatePassword(event) {
+    setUserData(
+      prevUserData => ({
+        email: prevUserData.email,
+        password: event.target.value,
+      })
+    )
+  }
+
+  return (
+    <div>
+      <form>
+        <input
+          type='email'
+          placeholder='your email'
+          onBlur={handleUpdateEmail}
+        />
+        <input
+          type='password'
+          placeholder='your password'
+          onBlur={handleUpdatePassword}
+        />
+      </form>
+
+      <p>{userData.email}</p>
+
+      <p>{userData.password}</p>
+
+    </div>
+  )
+}
+
+//se llama esta
+function Counter() {
+
+  const [counter, setCounter] = useState(0)
+
+  //esta no se llama la segunda vez
+  
+  //evento batching y ejecuta las dos 
+  //si es un puntero pero el batching lo ejecuta hasta el final del evento
+
+  //este es un boton y el otro es un input
+
+  function handleIncrement() {
+
+    /*
+    basicamente le estas diciendo como updatee la funcion 
+    no con que valor el tiene el valor y el usa mi funcion para hacer el update y regresa y guarda el valor a mi valor.
+    */
+    //no se procesan aqui que es lo que quieres!
+    //basicamente estas haciendo una cola de funciones que se tienen que ejecutar en otro momento no ahorita
+    //tu no controlas cuando se ejecutan solo le dices que va a hacer no cuando
+    setCounter(prevCounter => prevCounter + 1)
+    setCounter(prevCounter => prevCounter + 1)
+  }
+
+  return (
+    <>
+      <p>Counter value: {counter}</p>
+      <button onClick={handleIncrement}>Increment</button>
+    </>
+  )
+}
 
 function LoginForm() {
 
