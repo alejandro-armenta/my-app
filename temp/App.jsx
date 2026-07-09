@@ -4,6 +4,29 @@ import Result from "./components/Result";
 
 function ColoredText() {
 
+    const [chosenPriority, setChosenPriority] = useState('low-prio')
+
+    function handleChoosePriority(event) {
+        setChosenPriority(event.target.value)
+    }
+
+    //mergin classes are with strings
+    //merging inlines are with objects
+    
+    return (
+        <>
+            <p className={chosenPriority}>Chosen priority: {chosenPriority}</p>
+            <select onChange={handleChoosePriority}>
+                <option value="low-prio">Low</option>
+                <option value="high-prio">High</option>
+            </select>
+        </>
+    )
+}
+
+
+function ColoredText() {
+
     const [enteredColor, setEnteredColor] = useState('')
 
     function handleChangeColor(event) {
