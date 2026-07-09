@@ -1,0 +1,9 @@
+.low-prio{
+    background-color: blue;
+    color: white;
+}
+
+.high-prio{
+    background-color: red;
+    color: white;
+}
