@@ -3,6 +3,28 @@ import Calculation from "./components/Calculation";
 import Result from "./components/Result";
 
 
+function ProductsList({ products }) {
+    return (
+        <ul>
+            {
+                [
+                    <p key={0}><strong>Hola</strong></p>,
+                    <p key={1}><strong>como estas?</strong></p>,
+                ]
+            }
+
+            {products.map(product => (
+                <li key={product.id}>
+                    <h2>{product.title}</h2>
+                    <p>${product.price}</p>
+                </li>
+            )
+            )}
+        </ul>
+    )
+}
+
+
 function TermsOfUse() {
 
     const [showTerms, setShowTerms] = useState(false)
