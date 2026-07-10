@@ -1,7 +1,11 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 
-import TextBox from "./components/TextBox"
+import Form from "./components/Form"
 
 export default function App() {
-    return <TextBox mode='info'>hello</TextBox>
+    return (
+        <>
+            <Form />
+        </>
+    )
 }

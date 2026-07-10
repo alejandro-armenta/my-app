@@ -5,9 +5,13 @@
     color: #480c0c;
 }
 
-.info{
+.info {
     padding: 1rem;
     border-radius: 6px;
     background-color: #d6aafa;
     color: #410474;
+}
+
+#my-index .info a {
+    padding: 1rem;
 }
