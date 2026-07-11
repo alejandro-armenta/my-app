@@ -1,11 +1,13 @@
 import { useRef, useState } from "react"
-
-import Form from "./components/Form"
+import MainNavigation from "./components/MainNavigation"
 
 export default function App() {
     return (
         <>
-            <Form />
+            <MainNavigation />
+            <main>
+                <h2>a demo</h2>
+            </main>
         </>
     )
 }
